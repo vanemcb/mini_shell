@@ -21,7 +21,7 @@ char **_token(char *str)
 		token = strtok(NULL, " ");
 		i++;
 	}
-	/*arr_str[i] = NULL;*/
+	arr_str[i] = NULL;
 	free(str_dup);
 	return (arr_str);
 }

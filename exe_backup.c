@@ -1,8 +1,4 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <unistd.h>
-#include <string.h>
-#include <sys/types.h>
+#include "holberton.h"
 #include <sys/wait.h>
 
 int main(void)
@@ -15,18 +11,15 @@ int main(void)
 	{
 		return_f = fork();
 
-		if (return_f > 0)
-		{
-			wait(&status);
-			printf("Soy el padre: %d \n", getpid());
-		}
-		else if (return_f == 0)
+		if (return_f == 0)
 		{
 			printf("Soy el hijo %d y mi padre es %d\n", getpid(), getppid());
 			if (execve(argv[0], argv, NULL) == -1)
 				perror("Error:");
+			exit(0);
 		}
+		wait(&status);
+		printf("Soy el padre: %d \n", getpid());
 	}
-
 	return (0);
 }

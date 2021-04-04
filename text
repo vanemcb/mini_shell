@@ -1,0 +1,17 @@
+total 2768
+-rwxr-xr-x 1 vane vane    8672 Apr  4 15:11 _ls
+-rwxr-xr-x 1 vane vane   13088 Apr  4 17:17 a.out
+-rw-r--r-- 1 vane vane     158 Apr  2 15:13 ac.c
+-rw-r--r-- 1 vane vane     247 Apr  4 16:52 exe.c
+-rw-r--r-- 1 vane vane     447 Apr  4 16:45 exe_backup.c
+-rw-r--r-- 1 vane vane       0 Apr  4 15:03 hello
+-rw-r--r-- 1 vane vane     219 Apr  4 16:53 holberton.h
+-rw-r--r-- 1 vane vane 2767728 Apr  4 17:17 holberton.h.gch
+-rwxr--r-- 1 vane vane      38 Apr  1 15:13 max_pid
+-rwxr-xr-x 1 vane vane    8392 Apr  1 15:03 mypid
+-rw-r--r-- 1 vane vane     222 Apr  1 15:03 pid.c
+-rw-r--r-- 1 vane vane     403 Apr  4 15:46 prompt.c
+-rw-r--r-- 1 vane vane     661 Apr  4 17:17 shell.c
+-rw-r--r-- 1 vane vane     320 Apr  1 20:06 test.c
+-rw-r--r-- 1 vane vane       0 Apr  4 17:30 text
+-rw-r--r-- 1 vane vane     487 Apr  4 15:26 token.c
