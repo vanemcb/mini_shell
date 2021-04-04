@@ -2,9 +2,9 @@
 
 int main(void)
 {
-	int line_read, re_strcmp = 1; i = 0;
 	size_t size = 0;
-	char *buffer = NULL, *ex = "exit", **arr_str;
+	int line_read, re_strcmp = 1, i = 0;
+	char *buffer = NULL, *ex = "exit", **arr_str = NULL;
 
 	while (1)
 	{
@@ -21,8 +21,11 @@ int main(void)
 			printf("%s\n", arr_str[i]);
 			i++;
 		}
+		printf("%d\n", i);
+
 	}
 	free(arr_str);
 	free(buffer);
+
 	return 0;
 }

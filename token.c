@@ -2,8 +2,8 @@
 
 char **_token(char *str)
 {
-	char *token_cp, *str_dup, *token;
-	char **arr_str;
+	char *token_cp = NULL, *str_dup = NULL, *token = NULL;
+	char **arr_str = NULL;
 	int i = 0, x = 0;
 
 	str_dup = strdup(str);
@@ -21,7 +21,7 @@ char **_token(char *str)
 		token = strtok(NULL, " ");
 		i++;
 	}
-	arr_str[i] = NULL;
+	/*arr_str[i] = NULL;*/
 	free(str_dup);
 	return (arr_str);
 }
