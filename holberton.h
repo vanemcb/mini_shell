@@ -14,5 +14,5 @@ char **_token(char *str, char *sep);
 void exe(char **argv);
 char *_getenv(char *name);
 char *_strcat(char *str1, char *str2);
-char *_concpath(char **split_path, char *cmd);
+char *_concpath(char *cmd);
 #endif
