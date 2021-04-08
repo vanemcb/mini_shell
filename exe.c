@@ -13,11 +13,16 @@ void exe(char **argv)
 		path = strdup(_getenv("PATH"));
 		split_path = _token(path, ":");
 		argv[0] = _concpath(split_path, argv[0]);
+		if (argv[0][0] == 'n')
+			return_stat = -1;
+		return_stat = 0;
+		free(split_path);
+		free(path);
 	}
 	else
 		return_stat = stat(argv[0], &st);
 
-	if (argv[0][0] != 'n')
+	if (return_stat == 0)
 	{
 		return_fork = fork();
 		if (return_fork == 0)
@@ -31,8 +36,5 @@ void exe(char **argv)
 	}
 
 	wait(&status);
-
-	free(path);
-	free(split_path);
-	free(argv[0]);
+	/*free(argv[0]);*/
 }
