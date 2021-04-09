@@ -3,26 +3,33 @@
 int main(void)
 {
 	size_t size = 0;
-	int line_read = 0, re_strcmp = 1;
-	char *buffer = NULL, **arr_str = NULL;
+	int return_get = 0, return_strcmp = 1, mode;
+	char *buffer = NULL, **array_input = NULL;
 
-	while (line_read != EOF)
+	mode = isatty(0);
+	/*(void)mode;*/
+	printf("%d\n", mode);
+
+	while (return_get != EOF)
 	{
 		printf("#cisfun$ ");
-		line_read = getline(&buffer, &size, stdin);
+		return_get = getline(&buffer, &size, stdin);
 
-		if (line_read != -1 && buffer[0] != '\n' && buffer[0] != ' ')
+		if (return_get != -1 && buffer[0] != '\n' && buffer[0] != ' ')
 		{
-			buffer[line_read - 1] = '\0';
-			re_strcmp = strcmp(buffer, "exit");
-
-			if (re_strcmp == 0)
-				break;
-			arr_str = _token(buffer, " ");
-			exe(arr_str);
-			free(arr_str);
+			buffer[return_get - 1] = '\0';
+			return_strcmp = strcmp(buffer, "exit");
+			if (return_strcmp == 0)
+			{
+				free(buffer);
+				exit(0);
+			}
+			array_input = _token(buffer, " ");
+			exe(array_input);
+			free(array_input);
 		}
 	}
 	free(buffer);
+	printf("\n");
 	return 0;
 }

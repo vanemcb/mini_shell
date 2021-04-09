@@ -9,7 +9,7 @@ void exe(char **argv)
 
 	if (argv[0][0] != '/')
 	{
-		argv[0] = _concpath(argv[0]);
+		argv[0] = _pathcat(argv[0]);
 		if (argv[0][0] == 'n')
 			return_stat = -1;
 		else
@@ -25,14 +25,10 @@ void exe(char **argv)
 	{
 		return_fork = fork();
 		if (return_fork == 0)
-		{
-			if (execve(argv[0], argv, NULL) == -1)
-			{
-				perror("Error:");
-				exit(0);
-			}
-		}
+			execve(argv[0], argv, NULL);
 	}
+	else
+		perror("shell");
 	wait(&status);
 
 	/* Free para liberar argv[0] si se entra al primer if */

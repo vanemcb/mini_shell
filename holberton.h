@@ -11,8 +11,8 @@
 #include <limits.h>
 extern char **environ;
 char **_token(char *str, char *sep);
+char *_pathcat(char *cmd);
 void exe(char **argv);
 char *_getenv(char *name);
 char *_strcat(char *str1, char *str2);
-char *_concpath(char *cmd);
 #endif

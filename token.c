@@ -3,9 +3,10 @@
 char **_token(char *str, char *sep)
 {
 	char *token_cp = NULL, *str_dup = NULL, *token = NULL;
-	char **arr_str = NULL;
+	char **array_input = NULL;
 	int i = 0, x = 0;
 
+	/*Debemos hacer nuestra propia función strdup*/
 	str_dup = strdup(str);
 	token_cp = strtok(str_dup, sep);
 	while (token_cp)
@@ -13,15 +14,15 @@ char **_token(char *str, char *sep)
 		token_cp = strtok(NULL, sep);
 		x++;
 	}
-	arr_str = malloc(sizeof(char *) * (x + 1));
+	array_input = malloc(sizeof(char *) * (x + 1));
 	token = strtok(str, sep);
 	while (token != NULL)
 	{
-		arr_str[i] = token;
+		array_input[i] = token;
 		token = strtok(NULL, sep);
 		i++;
 	}
-	arr_str[i] = NULL;
+	array_input[i] = NULL;
 	free(str_dup);
-	return (arr_str);
+	return (array_input);
 }
