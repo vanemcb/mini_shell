@@ -27,6 +27,8 @@ int main(void)
 			array_input = _token(buffer, " ");
 			exe(array_input);
 			free(array_input);
+			if (mode == 0)
+				break;
 		}
 	}
 	free(buffer);
