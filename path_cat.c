@@ -6,7 +6,7 @@ char *_pathcat(char *cmd)
 	char *path_cat = NULL, **split_path = NULL, *path = NULL;
 	struct stat st;
 
-	path = strdup(_getenv("PATH"));
+	path = strdup(_getpath("PATH"));
 	split_path = _token(path, ":");
 	while (split_path[i])
 	{

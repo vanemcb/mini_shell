@@ -1,15 +1,23 @@
 #include "holberton.h"
+/*extern char **environ;*/
 
-list_t *_getpath(char *str)
+char *_getpath(char *name)
 {
-	char *token = NULL;
-	list_t *head = NULL;
+	int i = 0, len = 0;
+	char *path = NULL;
 
-	token = strtok(str, ":");
-	while (token != NULL)
+	while (name[len])
+		len++;
+
+	while (environ[i])
 	{
-		add_node_end(&head, token);
-		token = strtok(NULL, ":");
+		/*Debemos reemplazar strncmp por nuestra propia función ------------------------------------*/
+		if (strncmp(environ[i], name, len) == 0)
+		{
+			path = environ[i] + (len + 1);
+			break;
+		}
+		i++;
 	}
-	return(head);
+	return (path);
 }
