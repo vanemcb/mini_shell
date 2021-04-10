@@ -7,8 +7,9 @@ int main(void)
 	char *buffer = NULL, **array_input = NULL;
 
 	mode = isatty(0);
-	/*(void)mode;*/
 	printf("%d\n", mode);
+	if (mode == 0)
+		_nointeractive();
 
 	while (return_get != EOF)
 	{
@@ -27,8 +28,6 @@ int main(void)
 			array_input = _token(buffer, " ");
 			exe(array_input);
 			free(array_input);
-			if (mode == 0)
-				break;
 		}
 	}
 	free(buffer);

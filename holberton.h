@@ -15,4 +15,5 @@ char *_pathcat(char *cmd);
 void exe(char **argv);
 char *_getpath(char *name);
 char *_strcat(char *str1, char *str2);
+void _nointeractive();
 #endif
