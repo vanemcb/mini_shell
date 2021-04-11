@@ -16,4 +16,6 @@ void exe(char **argv);
 char *_getpath(char *name);
 char *_strcat(char *str1, char *str2);
 void _nointeractive();
+void _interactive();
+int _builtincalls(char *str);
 #endif

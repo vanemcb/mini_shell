@@ -1,5 +1,4 @@
 #include "holberton.h"
-#include <sys/wait.h>
 
 void exe(char **argv)
 {
