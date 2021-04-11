@@ -25,8 +25,10 @@ int _builtincalls(char *str)
 		{
 			/* Implementar nuestro propio strlen */
 			len = strlen(environ[i]);
-			write(STDOUT_FILENO, environ[i], len);
-			write(STDOUT_FILENO, "\n", 1);
+			if (write(STDOUT_FILENO, environ[i], len) == -1)
+				exit(0);
+			if (write(STDOUT_FILENO, "\n", 1) == -1)
+				exit(0);
 			i++;
 		}
 		return(1);

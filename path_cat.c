@@ -23,5 +23,6 @@ char *_pathcat(char *cmd)
 	}
 	free(split_path);
 	free(path);
+	perror(cmd);
 	return ("n");
 }

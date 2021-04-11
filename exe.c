@@ -18,19 +18,20 @@ void exe(char **argv)
 		}
 	}
 	else
+	{
 		return_stat = stat(argv[0], &st);
-
+		if (return_stat == -1)
+			perror(argv[0]);
+	}
 	if (return_stat == 0)
 	{
 		return_fork = fork();
 		if (return_fork == 0)
 			execve(argv[0], argv, NULL);
 	}
-	else
-		perror("shell");
 	wait(&status);
 
-	/* Free para liberar argv[0] si se entra al primer if */
+	/* Free para liberar argv[0] si se entra al primer if*/
 	if (f == 1)
 		free(argv[0]);
 }

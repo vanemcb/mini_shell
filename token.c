@@ -15,6 +15,9 @@ char **_token(char *str, char *sep)
 		x++;
 	}
 	array_input = malloc(sizeof(char *) * (x + 1));
+	if (!array_input)
+		return(NULL);
+
 	token = strtok(str, sep);
 	while (token != NULL)
 	{
