@@ -6,6 +6,9 @@ void _nointeractive()
 	int return_read, i = 0, return_built;
 
 	return_read = read(0, buffer, 1024);
+	if (return_read == -1)
+		exit(EXIT_FAILURE);
+
 	buffer[return_read] = '\0';
 
 	array_input = _token(buffer, "\n");
@@ -21,4 +24,6 @@ void _nointeractive()
 		}
 		i++;
 	}
+	if (write(STDOUT_FILENO, "#cisfun$ \n", 10) == -1)
+		exit(EXIT_FAILURE);
 }

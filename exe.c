@@ -26,8 +26,11 @@ void exe(char **argv)
 	if (return_stat == 0)
 	{
 		return_fork = fork();
-		if (return_fork == 0)
-			execve(argv[0], argv, NULL);
+		if (return_fork == -1)
+			exit(EXIT_FAILURE);
+		else if (return_fork == 0)
+			if(execve(argv[0], argv, NULL) == -1)
+				exit(EXIT_FAILURE);
 	}
 	wait(&status);
 

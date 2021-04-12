@@ -11,6 +11,8 @@ char *_strcat(char *str1, char *str2)
 		j++;
 
 	strcat = malloc(sizeof(char) * (i + j + 2));
+	if(!strcat)
+		return(NULL);
 
 	for (x = 0; x < i; x++)
 		strcat[x] = str1[x];

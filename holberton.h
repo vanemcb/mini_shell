@@ -18,4 +18,8 @@ char *_strcat(char *str1, char *str2);
 void _nointeractive();
 void _interactive();
 int _builtincalls(char *str);
+int _strlen(char *str);
+int _strcmp(char *s1, char *s2);
+char *_strdup(char *str);
+int _strncmp(char *s1, char *s2, int n);
 #endif

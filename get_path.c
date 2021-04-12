@@ -11,8 +11,7 @@ char *_getpath(char *name)
 
 	while (environ[i])
 	{
-		/*Debemos reemplazar strncmp por nuestra propia función ------------------------------------*/
-		if (strncmp(environ[i], name, len) == 0)
+		if (_strncmp(environ[i], name, len) == 0)
 		{
 			path = environ[i] + (len + 1);
 			break;

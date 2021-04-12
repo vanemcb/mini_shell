@@ -8,9 +8,15 @@ void _interactive()
 
 	while (return_get != EOF)
 	{
-		write(STDOUT_FILENO, "#cisfun$ ", 9);
+		if(write(STDOUT_FILENO, "#cisfun$ ", 9) == -1)
+			exit(EXIT_FAILURE);
 
 		return_get = getline(&buffer, &size, stdin);
+		if (return_get == -1)
+		{
+			free(buffer);
+			exit(EXIT_FAILURE);
+		}
 
 		if (return_get != -1 && buffer[0] != '\n' && buffer[0] != ' ')
 		{
@@ -27,5 +33,6 @@ void _interactive()
 		}
 	}
 	free(buffer);
-	write(STDOUT_FILENO, "\n", 1);
+	if(write(STDOUT_FILENO, "\n", 1) == -1)
+		exit(EXIT_FAILURE);
 }

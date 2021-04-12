@@ -9,7 +9,7 @@ int _builtincalls(char *str)
 	while (built_ins[i])
 	{
 		/* implementar nuestro propio strcmp*/
-		if(!strcmp(str, built_ins[i]))
+		if(!_strcmp(str, built_ins[i]))
 			break;
 		i++;
 	}
@@ -18,17 +18,16 @@ int _builtincalls(char *str)
 	{
 	case 1:
 		free(str);
-		exit(0);
+		exit(EXIT_SUCCESS);
 	case 2:
 		i = 0;
 		while (environ[i])
 		{
-			/* Implementar nuestro propio strlen */
-			len = strlen(environ[i]);
+			len = _strlen(environ[i]);
 			if (write(STDOUT_FILENO, environ[i], len) == -1)
-				exit(0);
+				exit(EXIT_FAILURE);
 			if (write(STDOUT_FILENO, "\n", 1) == -1)
-				exit(0);
+				exit(EXIT_FAILURE);
 			i++;
 		}
 		return(1);
