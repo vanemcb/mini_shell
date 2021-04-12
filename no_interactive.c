@@ -1,22 +1,27 @@
 #include "holberton.h"
 
-void _nointeractive()
+/**
+* _nointeractive - Executes the Shell no interactive mode.
+* Return: void.
+*/
+
+void _nointeractive(void)
 {
 	char buffer[1024], **array_input = NULL, **array_line_input = NULL;
-	int return_read, i = 0, return_built;
+	int re_read, i = 0, re_built;
 
-	return_read = read(0, buffer, 1024);
-	if (return_read == -1)
+	re_read = read(0, buffer, 1024);
+	if (re_read == -1)
 		exit(EXIT_FAILURE);
 
-	buffer[return_read] = '\0';
+	buffer[re_read] = '\0';
 
 	array_input = _token(buffer, "\n");
 
 	while (array_input[i])
 	{
-		return_built = _builtincalls(array_input[i]);
-		if (return_built == 0)
+		re_built = _builtincalls(array_input[i]);
+		if (re_built == 0)
 		{
 			array_line_input = _token(array_input[i], " ");
 			exe(array_line_input);

@@ -1,8 +1,15 @@
 #include "holberton.h"
 
+/**
+* _pathcat - Concatenates the command @cmd with the PATH directories.
+* @cmd: Input command.
+* Return: Pointer to concatenated path if it exists or 'n'
+* if it doesn't exist.
+*/
+
 char *_pathcat(char *cmd)
 {
-	int i = 0, return_stat;
+	int i = 0, re_stat;
 	char *path_cat = NULL, **split_path = NULL, *path = NULL;
 	struct stat st;
 
@@ -11,8 +18,8 @@ char *_pathcat(char *cmd)
 	while (split_path[i])
 	{
 		path_cat = _strcat(split_path[i], cmd);
-		return_stat = stat(path_cat, &st);
-		if (return_stat == 0)
+		re_stat = stat(path_cat, &st);
+		if (re_stat == 0)
 		{
 			free(split_path);
 			free(path);

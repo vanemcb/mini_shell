@@ -1,12 +1,12 @@
 #include "holberton.h"
 
 /**
- * _strncmp - function that compares n characters of two strings
- * @s1: string 1
- * @s2: string 2
- * @n: number of characters to compare
- * Return: 0, positive or negative
- */
+* _strncmp - function that compares n characters of two strings.
+* @s1: string 1.
+* @s2: string 2.
+* @n: number of characters to compare.
+* Return: 0, positive or negative.
+*/
 
 int _strncmp(char *s1, char *s2, int n)
 {

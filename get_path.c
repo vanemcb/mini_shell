@@ -1,5 +1,10 @@
 #include "holberton.h"
-/*extern char **environ;*/
+
+/**
+* _getpath - Get the value of the enviroment variable @name.
+* @name: The name of the enviroment variable.
+* Return: Pointer to value of the enviroment variable.
+*/
 
 char *_getpath(char *name)
 {
@@ -9,7 +14,7 @@ char *_getpath(char *name)
 	while (name[len])
 		len++;
 
-	while (environ[i])
+	while (environ[i]) /* environ is a GLOBAL var */
 	{
 		if (_strncmp(environ[i], name, len) == 0)
 		{

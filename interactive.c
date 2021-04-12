@@ -1,30 +1,35 @@
 #include "holberton.h"
 
-void _interactive()
+/**
+* _interactive - Executes the shell interactive mode.
+* Return: void.
+*/
+
+void _interactive(void)
 {
 	size_t size = 0;
-	int return_get = 0, return_built;
+	int re_get = 0, re_built;
 	char *buffer = NULL, **array_input = NULL;
 
-	while (return_get != EOF)
+	while (re_get != EOF)
 	{
-		if(write(STDOUT_FILENO, "#cisfun$ ", 9) == -1)
+		if (write(STDOUT_FILENO, "#cisfun$ ", 9) == -1)
 			exit(EXIT_FAILURE);
 
-		return_get = getline(&buffer, &size, stdin);
-		if (return_get == -1)
+		re_get = getline(&buffer, &size, stdin);
+		if (re_get == -1)
 		{
 			free(buffer);
 			exit(EXIT_FAILURE);
 		}
 
-		if (return_get != -1 && buffer[0] != '\n' && buffer[0] != ' ')
+		if (re_get != -1 && buffer[0] != '\n' && buffer[0] != ' ')
 		{
-			buffer[return_get - 1] = '\0';
+			buffer[re_get - 1] = '\0';
 
-			return_built = _builtincalls(buffer);
+			re_built = _builtincalls(buffer);
 
-			if (return_built == 0)
+			if (re_built == 0)
 			{
 				array_input = _token(buffer, " ");
 				exe(array_input);
@@ -33,6 +38,6 @@ void _interactive()
 		}
 	}
 	free(buffer);
-	if(write(STDOUT_FILENO, "\n", 1) == -1)
+	if (write(STDOUT_FILENO, "\n", 1) == -1)
 		exit(EXIT_FAILURE);
 }

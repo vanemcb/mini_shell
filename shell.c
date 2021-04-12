@@ -1,5 +1,10 @@
 #include "holberton.h"
 
+/**
+* main - Check for shell mode and execute one of these.
+* Return: 0.
+*/
+
 int main(void)
 {
 	int mode;
@@ -10,5 +15,5 @@ int main(void)
 		_nointeractive();
 	else
 		_interactive();
-	return 0;
+	return (0);
 }
