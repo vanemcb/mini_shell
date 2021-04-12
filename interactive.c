@@ -17,11 +17,6 @@ void _interactive(void)
 			exit(EXIT_FAILURE);
 
 		re_get = getline(&buffer, &size, stdin);
-		if (re_get == -1)
-		{
-			free(buffer);
-			exit(EXIT_FAILURE);
-		}
 
 		if (re_get != -1 && buffer[0] != '\n' && buffer[0] != ' ')
 		{
