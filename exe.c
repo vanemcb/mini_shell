@@ -6,17 +6,20 @@
 * Return: void.
 */
 
-void exe(char **argv)
+int exe(char **argv)
 {
 	pid_t re_fork;
-	int status, re_stat, f = 0;
+	int status, re_stat, f = 0, re_exe = 0;
 	struct stat st;
 
 	if (argv[0][0] != '/')
 	{
 		argv[0] = _pathcat(argv[0]);
 		if (argv[0][0] == 'n')
+		{
 			re_stat = -1;
+			re_exe = 127;
+		}
 		else
 		{
 			re_stat = 0;
@@ -29,7 +32,7 @@ void exe(char **argv)
 		if (re_stat == -1)
 		{
 			perror(argv[0]);
-			/*exit(127);*/
+			re_exe = 127;
 		}
 	}
 	if (re_stat == 0)
@@ -46,4 +49,5 @@ void exe(char **argv)
 	/* Free para liberar argv[0] si se entra al primer if*/
 	if (f == 1)
 		free(argv[0]);
+	return (re_exe);
 }

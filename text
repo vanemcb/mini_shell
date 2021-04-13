@@ -1,11 +1,14 @@
 ls
 echo ------------------------
 ls -l
+exit
 echo ------------------------
 khieehgeh
 echo ------------------------
+exit
 echo hola funcione muy bien
 echo ------------------------
 env
 echo ------------------------
 ls -a
+echo $?

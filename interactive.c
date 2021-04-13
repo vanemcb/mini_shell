@@ -5,10 +5,10 @@
 * Return: void.
 */
 
-void _interactive(void)
+int _interactive(void)
 {
 	size_t size = 0;
-	int re_get = 0, re_built;
+	int re_get = 0, re_built, re_exe;
 	char *buffer = NULL, **array_input = NULL;
 
 	while (re_get != EOF)
@@ -27,7 +27,7 @@ void _interactive(void)
 			if (re_built == 0)
 			{
 				array_input = _token(buffer, " ");
-				exe(array_input);
+				re_exe = exe(array_input);
 				free(array_input);
 			}
 		}
@@ -35,4 +35,5 @@ void _interactive(void)
 	free(buffer);
 	if (write(STDOUT_FILENO, "\n", 1) == -1)
 		exit(EXIT_FAILURE);
+	return (re_exe);
 }

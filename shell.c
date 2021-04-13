@@ -7,13 +7,19 @@
 
 int main(void)
 {
-	int mode;
+	int mode, re_mode;
 
 	mode = isatty(0);
 
 	if (mode == 0)
-		_nointeractive();
+	{
+		re_mode = _nointeractive();
+		return (re_mode);
+	}
 	else
-		_interactive();
+	{
+		re_mode = _interactive();
+		return (re_mode);
+	}
 	return (0);
 }

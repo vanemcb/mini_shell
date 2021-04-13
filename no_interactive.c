@@ -5,10 +5,10 @@
 * Return: void.
 */
 
-void _nointeractive(void)
+int _nointeractive(void)
 {
 	char buffer[1024], **array_input = NULL, **array_line_input = NULL;
-	int re_read, i = 0, re_built;
+	int re_read, i = 0, re_built = 0, re_exe = 0;
 
 	re_read = read(0, buffer, 1024);
 	if (re_read == -1)
@@ -24,10 +24,11 @@ void _nointeractive(void)
 		if (re_built == 0)
 		{
 			array_line_input = _token(array_input[i], " ");
-			exe(array_line_input);
+			re_exe = exe(array_line_input);
 			free(array_line_input);
 		}
 		i++;
 	}
 	free(array_input);
+	return (re_exe);
 }

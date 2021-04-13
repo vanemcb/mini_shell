@@ -14,11 +14,11 @@
 extern char **environ;
 char **_token(char *str, char *sep);
 char *_pathcat(char *cmd);
-void exe(char **argv);
+int exe(char **argv);
 char *_getpath(char *name);
 char *_strcat(char *str1, char *str2);
-void _nointeractive(void);
-void _interactive(void);
+int _nointeractive(void);
+int _interactive(void);
 int _builtincalls(char *str);
 int _strlen(char *str);
 int _strcmp(char *s1, char *s2);
