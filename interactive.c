@@ -18,7 +18,7 @@ void _interactive(void)
 
 		re_get = getline(&buffer, &size, stdin);
 
-		if (re_get != -1 && buffer[0] != '\n' && buffer[0] != ' ')
+		if (re_get != -1 && buffer[0] != '\n')
 		{
 			buffer[re_get - 1] = '\0';
 

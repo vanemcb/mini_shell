@@ -27,7 +27,10 @@ void exe(char **argv)
 	{
 		re_stat = stat(argv[0], &st);
 		if (re_stat == -1)
+		{
 			perror(argv[0]);
+			/*exit(127);*/
+		}
 	}
 	if (re_stat == 0)
 	{
@@ -35,7 +38,7 @@ void exe(char **argv)
 		if (re_fork == -1)
 			exit(EXIT_FAILURE);
 		else if (re_fork == 0)
-			if (execve(argv[0], argv, NULL) == -1)
+			if (execve(argv[0], argv, environ) == -1)
 				exit(EXIT_FAILURE);
 	}
 	wait(&status);

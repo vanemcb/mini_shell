@@ -29,6 +29,5 @@ void _nointeractive(void)
 		}
 		i++;
 	}
-	if (write(STDOUT_FILENO, "#cisfun$ \n", 10) == -1)
-		exit(EXIT_FAILURE);
+	free(array_input);
 }
