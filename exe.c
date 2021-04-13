@@ -45,8 +45,6 @@ int exe(char **argv)
 				exit(EXIT_FAILURE);
 	}
 	wait(&status);
-
-	/* Free para liberar argv[0] si se entra al primer if*/
 	if (f == 1)
 		free(argv[0]);
 	return (re_exe);

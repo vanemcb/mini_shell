@@ -8,7 +8,7 @@
 int _interactive(void)
 {
 	size_t size = 0;
-	int re_get = 0, re_built, re_exe;
+	int re_get = 0, re_built, re_exe, re_space;
 	char *buffer = NULL, **array_input = NULL;
 
 	while (re_get != EOF)
@@ -21,10 +21,10 @@ int _interactive(void)
 		if (re_get != -1 && buffer[0] != '\n')
 		{
 			buffer[re_get - 1] = '\0';
-
+			re_space = space(buffer);
 			re_built = _builtincalls(buffer);
 
-			if (re_built == 0)
+			if (re_built == 0 && re_space == 1)
 			{
 				array_input = _token(buffer, " ");
 				re_exe = exe(array_input);
